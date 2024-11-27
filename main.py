@@ -38,11 +38,24 @@ def K3 (p1, threshhold=0.01):
 def C (k2, k3, threshhold=0.15):
     if min(k2,k3) > threshhold:
         c = min(k2,k3)
-        return C
+        return c
     else:
         return 0
     
 def A (c, threshhold = 0.1):
     if c > threshhold:
         return True
+    else:
+        return False
+    
+r1 = R1(0)
+r2 = R1(0.5)
+k1 = K1(r1,r2)
+p1 = P1(k1)
+k3 = K3(p1)
+k2 = K2(k1)
+c = C(k2,k3)
+Apotosis = A(c)
+print(Apotosis)
+
 
