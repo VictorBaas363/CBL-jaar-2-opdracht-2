@@ -63,21 +63,25 @@ class Complex(Pathway):
 
 def simulation(r1, r2):
     '''A function used to simulate the pathway, first defines the objects and then uses functions on the objects'''
-    kin_1 = Kinase(1.0)
-    kin_2 = Kinase(0.2)
-    kin_3 = Kinase(0.01)
-    phos = Phosphatase(0.1)
-    comp = Complex(0.15)
-    apop = Pathway(0.1)
+    if 0 <= r1 <= 1 and 0 <= r2 <= 1:
+        kin_1 = Kinase(1.0)
+        kin_2 = Kinase(0.2)
+        kin_3 = Kinase(0.01)
+        phos = Phosphatase(0.1)
+        comp = Complex(0.15)
+        apop = Pathway(0.1)
 
-    kinase_1 = kin_1.kinase_1(r1, r2)
-    kinase_2 = kin_2.kinase_2(kinase_1)
-    phosphatase = phos.phosphatase(kinase_1)
-    kinase_3 = kin_3.kinase_3(phosphatase)
-    complex = comp.complex(kinase_2, kinase_3)
-    apoptosis = apop.Apoptosis(complex)
-    print(apoptosis)
-    return apoptosis
+        kinase_1 = kin_1.kinase_1(r1, r2)
+        kinase_2 = kin_2.kinase_2(kinase_1)
+        phosphatase = phos.phosphatase(kinase_1)
+        kinase_3 = kin_3.kinase_3(phosphatase)
+        complex = comp.complex(kinase_2, kinase_3)
+        apoptosis = apop.Apoptosis(complex)
+        print(apoptosis)
+        return apoptosis
+    else:
+        print("Choose r1 and r2 between 0 and 1")
+        return
 
 
 
