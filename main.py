@@ -2,6 +2,7 @@ import numpy as np
 
 class Pathway:
     '''A parent class that defines the threshhold, activation and apotosis'''
+
     def __init__(self, thr):
         self.thr = thr
 
@@ -78,5 +79,5 @@ def simulation(r1, r2):
     print(apoptosis)
     return apoptosis
 
-simulation(0.3, 0.8)
+
 
